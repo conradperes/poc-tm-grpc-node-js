@@ -1,4 +1,18 @@
 services:
+  grpc-server:
+    container_name: grpcserver
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "50051:50051"
+  grpc-client:
+    container_name: grpcclient
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
   postgres:
     image: postgres
     environment:
