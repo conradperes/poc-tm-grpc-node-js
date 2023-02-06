@@ -1,0 +1,22 @@
+################################################
+######### NÃO EDITAR AS LINHAS ABAIXO ##########
+environment: trademaster                     ###
+app: trademaster                             ###
+repo: trademaster                            ###
+################################################
+
+container:
+  replicas: 2
+  health:
+    path: /healthy
+  port: 3000
+  image: 
+    name: trademaster
+    tag: latest
+  environment:
+    - name: TESTE
+      value: TESTE
+ingress:
+  enabled: true
+  annotations:
+    any_ingress_annotations: "YUP"

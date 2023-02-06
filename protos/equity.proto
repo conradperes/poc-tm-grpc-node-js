@@ -1,0 +1,41 @@
+syntax = "proto3";
+package equity;
+
+// service definition
+
+service EquityService {
+  rpc listEquities(Empty) returns (EquityList) {}
+  rpc readEquity(EquityId) returns (Equity) {}
+  rpc createEquity(newEquity) returns (result) {}
+  rpc updateEquity(Equity) returns (result) {}
+  rpc deleteEquity(EquityId) returns (result) {}
+}
+
+// message type definitions
+
+message Empty {}
+
+message EquityList {
+  repeated Equity equities = 1;
+}
+
+message EquityId {
+  int32 id = 1;
+}
+
+message Equity {
+  int32 id = 1;
+  string name = 2;
+  string quotation = 3;
+  string dateofpurchase = 4;
+}
+
+message newEquity {
+  string name = 1;
+  string quotation = 2;
+  string dateofpurchase = 3;
+}
+
+message result {
+  string status = 1;
+}
